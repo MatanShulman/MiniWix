@@ -1,0 +1,295 @@
+<html id="mainP" >
+	<title > ShulWix (targil 3) </title>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://malsup.github.com/jquery.form.js"></script> 
+		<link rel="stylesheet" href="messi.css" />
+		<script src="messi.js"></script>
+		<script>
+	
+	
+			var i=0;
+			$(document).ready(function() {
+			
+				//if(localStorage.getItem('dcd') == undefined || localStorage.getItem('dcd') != ""){
+					//$("html").html(localStorage.getItem('dcd'));
+					$('#tagColor').hide();
+					$('#BB').hide(); 
+					$('#CC').hide(); 
+					$('#DD').hide(); 
+					$('#EE').hide(); 
+/*			
+			$('textarea').each(function(index,item){
+					if($(this).val() != 'insert text'){
+						++i;
+						//$('#BB').css('display','block');
+						console.log($(this).parent().parent());
+						$(this).parent().parent().show();
+					}
+					$(this).html($(item).val());
+					console.log($(this));
+				});
+				
+			
+	*/		
+				
+			}); 
+			
+			
+		
+			function addPicture(e){
+				var fileId = e.name;
+				if(fileId=="filebb"){
+				var str = 	document.getElementById("bFile").value;
+				var res = str.split("\\");
+				//var p = 	document.getElementById('div1');
+				//p.innerHTML="<img src=\"..\\upload\\"+res[2]+"\"  height=\"200\" width=\"200\" >";
+			}
+			
+			if(fileId=="filedd"){
+			var str = 	document.getElementById("dFile").value;
+		    var res = str.split("\\");
+			//var p = 	document.getElementById('div2');
+			//p.innerHTML="<img src=\"..\\upload\\"+res[2]+"\"  height=\"200\" width=\"200\" >";
+			}
+			if(fileId=="fileff"){
+			var str = 	document.getElementById("fFile").value;
+		    var res = str.split("\\");
+			//var p = 	document.getElementById('div3');
+			//p.innerHTML="<img src=\"..\\upload\\"+res[2]+"\"  height=\"200\" width=\"200\" >";
+			}
+			if(fileId=="filehh"){
+			var str = 	document.getElementById("hFile").value;
+		    var res = str.split("\\");
+			//var p = 	document.getElementById('div4');
+			//p.innerHTML="<img src=\"..\\upload\\"+res[2]+"\"  height=\"200\" width=\"200\" >";
+			}
+			if(fileId=="filekk"){
+			var str = 	document.getElementById("kFile").value;
+		    var res = str.split("\\");
+			//var p = 	document.getElementById('div5');
+			//p.innerHTML="<img src=\"..\\upload\\"+res[2]+"\"  height=\"200\" width=\"200\" >";
+			}
+ 	
+ 	
+	
+	}
+		
+		function addRow(){
+				if(i<5){
+						i++;
+					if(i == 2){
+						$("#BB").show();
+						$("#delb").val("yes");
+					} 
+					if(i == 3){
+						$("#CC").show();
+						$("#delc").val("yes");
+					} 
+					if(i == 4){
+						$("#DD").show();
+						$("#deld").val("yes");
+					} 
+					if(i == 5){
+						$("#EE").show();
+						$("#dele").val("yes");
+					} 
+				}
+				else{
+				new Messi("Cant add more");
+				}
+			
+			}
+			function delRow(){
+				if(i>1){
+					
+					if(i == 2){
+						$("#BB").hide();
+						$("#delb").val("no");
+					} 
+					if(i == 3){
+						$("#CC").hide();
+						$("#delc").val("no");
+					} 
+					if(i == 4){
+						$("#DD").hide();
+						$("#deld").val("no");
+					} 
+					if(i == 5){
+						$("#EE").hide();
+						$("#dele").val("no");
+					} 	
+					i--;					
+				}
+				else{
+				new Messi("Cant delete last one");
+				}
+			
+			}
+		
+			
+			function change() {
+				
+				var e = document.getElementById("selectColor");
+				var strUser = e.options[e.selectedIndex].value;
+				if(strUser == "black" ) {
+					$('#tagColor').show();
+					document.getElementById("showColor").style.backgroundColor = "black";
+				}
+				if(strUser == "red" ) {
+					$('#tagColor').show();
+					document.getElementById("showColor").style.backgroundColor = "red";
+				}
+				if(strUser == "blue" ) {
+					$('#tagColor').show();
+					document.getElementById("showColor").style.backgroundColor = "blue";
+				}
+				if(strUser == "green" ) {
+					$('#tagColor').show();
+					document.getElementById("showColor").style.backgroundColor = "green";
+				}
+			}			
+				
+		
+			
+			 
+			$(document).ready(function() {
+						
+				// bind 'mainHeaderForm' and provide a simple callback function 
+				$('#mainHeaderForm').ajaxForm(function(data) { 
+				new Messi('Your page has been saved  !!! ');
+					
+				}); 
+			}); 
+			
+			 <!--need to insert new files and remove defluat 	-->
+				$(document).ready(function() { 
+					$("#aaText").click(function() { 
+						$("#aa").html("<textarea name=\"aaTextarea\" required>insert text</textarea>")
+					}); 
+				}); 
+				$(document).ready(function() { 
+					$("#ccText").click(function() { 
+						$("#cc").html("<textarea id=\"btextarea\" name=\"bbTextarea\" required>insert text</textarea>")
+					}); 
+				}); 
+				$(document).ready(function() { 
+					$("#eeText").click(function() { 
+						$("#ee").html("<textarea name=\"eeTextarea\" required></textarea>")
+					}); 
+				}); 
+				$(document).ready(function() { 
+					$("#ggText").click(function() { 
+						$("#gg").html("<textarea name=\"ggTextarea\" required></textarea>")
+					}); 
+				}); 
+				$(document).ready(function() { 
+					$("#jjText").click(function() { 
+						$("#jj").html("<textarea name=\"jjTextarea\" required></textarea>")
+					}); 
+				}); 
+						
+				 
+			 
+		
+		</script>
+	
+	</head>
+
+<body  vlink="blue" bgcolor = "CornflowerBlue" >
+   <!--Main Form 	-->
+   <form id="mainHeaderForm" action="../../folderC/MainB.php" method="post" enctype="multipart/form-data"> 
+   
+  
+	
+	<center><h1 >this is a new page </h1></center>
+   
+   <!--header file 	-->
+	<center>
+		<table border="1" width="78%">
+			<tr>
+				<td>
+					<center>
+						<h1>please select a photo to upload to  header</h1>
+							<input type="file" name="file" id="file"><br>
+					</center>
+				</td>
+			</tr>
+		</table>
+	   
+    </center> 
+	
+	
+	<center>
+	<table  width="78%" border =2 cellpadding="2" >
+			<tr id="AA">
+				<td id="aa" align="center"> <input type="button"  id="aaText" value="press to add  a text"> <br></td>
+				<td id="bb" align="center"> <div id="div1"></div><input id="bFile" type="file" name="filebb"  onchange="addPicture(this)"><br><br></td>
+			</tr>
+			<tr id="BB">
+				<td id="cc" align="center"> <input type="button"  id="ccText" value="press to add  a text"> <br></td>
+				<td id="dd" align="center"> <div id="div2"></div> <input id="dFile" type="file" name="filedd" onchange="addPicture(this)" > <br></td>
+			</tr>
+			<tr id="CC">
+				<td id="ee" align="center"> <input type="button"  id="eeText" value="press to add  a text"> <br></td>
+				<td id="ff" align="center"> <div id="div3"></div> <input id="fFile"	type="file" name="fileff" onchange="addPicture(this)"> <br></td>
+			</tr>
+			<tr id="DD">
+				<td id="gg" align="center"> <input type="button"  id="ggText" value="press to add  a text"> <br></td>
+				<td id="hh" align="center"> <div id="div4"></div> <input id="hFile"	type="file" name="filehh" onchange="addPicture(this)"> <br></td>
+			</tr>
+			<tr id="EE">
+				<td id="jj" align="center"> <input type="button"  id="jjText" value="press to add  a text"> <br></td>
+				<td id="kk" align="center">  <div id="div5"></div><input id="kFile"	type="file" name="filekk" onchange="addPicture(this)"> <br></td>
+			</tr>
+			
+	</table>
+	
+	
+	<h2> press this button if you want to delete a cell</h2>
+	<input name="aLink" type="hidden" id="aLinkid"  value="2" >
+	
+	
+    <input type="button" value="Delete a cell !!! " onclick="delRow()"> 
+	<input type="button" value="Add a cell !!! " onclick="addRow()"> 
+	</br></br></br>
+	
+	
+	<div  ><h2>	please select the color </br> for the background </h2></div>
+    <select id="selectColor" class="target" onchange="change()" name="colorPick">
+	  <option  value="red">red </option>
+	  <option  value="blue">blue</option>
+	  <option  value="black">black</option>
+	  <option  value="green">green</option>
+	</select>
+	</br></br>
+	<div>
+	<div id="tagColor">  this will be the color of the backround </div>
+	<div id="showColor" style="width:75px;height:50px"> </div>
+	
+
+	<!---<input type="button"  id="save" value="Press here to save " > 
+	<input type="button"  id="load" value="Press here to load " >-->
+
+<input name="delB" type="hidden" id="delb"  value="no" >
+<input name="delC" type="hidden" id="delc"  value="no" >
+<input name="delD" type="hidden" id="deld"  value="no" >
+<input name="delE" type="hidden" id="dele"  value="no" >
+
+
+
+<h3> **Please remember to submit your work before moving to other page !!!<br>  </h3>
+<input type="submit" name="submit" value="Submit"><br>
+<a href="../index.html">Press here to go to hone button !!!</a>
+
+
+</form>
+	<h1>Matan Shulman 300735883</h1>
+		
+</center>
+
+	</body>
+</html>
+
+
+
